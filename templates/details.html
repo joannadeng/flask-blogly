@@ -1,0 +1,6 @@
+{% block title %} {{user.first_name}} {{user.last_name}} {% endblock %}
+{% block content %}
+<div>{{user.image}}</div>
+<a href="/users/{{user.id}}/edit">Edit</a>
+<a href="/users/{{user.id}}/delete">Delete</a>
+{% endblock %}

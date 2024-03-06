@@ -1,0 +1,16 @@
+{% block title %} Edit a user {% endblock %}
+{% block content %}
+<form  action="'/users/{{user.id}}'" method="POST">
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" value="{{user.first_name}}">
+
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" value="{{user.last_name}}">
+
+    <label for="image_URL">Image Name</label>
+    <input type="url" name="image_URL" value="{{user.image}}">
+
+    <button>cancel</button> ??
+    <button>save</button>
+</form>
+{% endblock %}

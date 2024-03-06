@@ -1,0 +1,15 @@
+{% block title %} Create a user {% endblock %}
+{% block content %}
+<form  action="/users/new" method="POST">
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" placeholder="Enter a first name">
+
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" placeholder="Enter a last name">
+
+    <label for="image_URL">Image Name</label>
+    <input type="url" name="image_URL" placeholder="Provide an image of this user">
+
+    <button>Add</button>
+</form>
+{% endblock %}
