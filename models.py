@@ -16,3 +16,10 @@ class User(db.Model):
     first_name = db.Column(db.Text, nullable = False)
     last_name = db.Column(db.Text, nullable = False)
     image_url = db.Column(db.Text, nullable = False, default = default_image_url )
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key = True, autoincrement=True)
+    title = db.Column(db.Text, nullable = False)
+    content = db.Column(db.Text, nullable = False)
+    create_at = db.Column(db.DateTime, nullable = False，server_default = func.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
