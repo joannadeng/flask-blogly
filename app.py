@@ -59,7 +59,7 @@ def edit_user(user_id):
     return render_template("user_edit.html",user=user)
 
 @app.route('/users/<int:user_id>/edit', methods=['POST'])
-def show_user_with_editing(user_id):
+def show_user_after_editing(user_id):
     """show details about a single user after editing"""
     user = User.query.get(user_id)
     user.first_name = request.form['first_name']
@@ -69,7 +69,7 @@ def show_user_with_editing(user_id):
     db.session.commit()
     return redirect('/')
 
-@app.route('/users/<int:user_id>/delete')
+@app.route('/users/<int:user_id>/delete',methods='POST')
 def delete_user(user_id):
     """delete a user"""
     User.query.filter_by(id=user_id).delete()
