@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %} Edit a user {% endblock %}
 {% block content %}
-<form  action="'/users/{{user.id}}'" method="POST">
+<form  action="/users/{{user.id}}/edit" method="POST">
     <label for="first_name">First Name</label>
     <input type="text" name="first_name" value="{{user.first_name}}">
 
@@ -11,7 +11,7 @@
     <label for="image_URL">Image Name</label>
     <input type="url" name="image_URL" value="{{user.image}}">
 
-    <button>cancel</button> ??
+    <a href="/users/{{user.id}}">cancel</a>
     <button>save</button>
 </form>
 {% endblock %}

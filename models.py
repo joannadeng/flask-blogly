@@ -1,7 +1,9 @@
 """Models for Blogly."""
 from flask_sqlalchemy import SQLAlchemy 
 
-db = SQLAlchemy
+db = SQLAlchemy()
+
+# with app.app_context().push()
 
 default_image_url = "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800"
 
@@ -15,11 +17,14 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement=True)
     first_name = db.Column(db.Text, nullable = False)
     last_name = db.Column(db.Text, nullable = False)
-    image_url = db.Column(db.Text, nullable = False, default = default_image_url )
+    image_url = db.Column(db.Text, default = default_image_url )
 
 class Post(db.Model):
+    __tablename__='posts'
+
     id = db.Column(db.Integer, primary_key = True, autoincrement=True)
     title = db.Column(db.Text, nullable = False)
     content = db.Column(db.Text, nullable = False)
-    create_at = db.Column(db.DateTime, nullable = False，server_default = func.now())
+    create_at = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
